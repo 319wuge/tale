@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:tx="http://www.springframework.org/schema/tx"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+	<!--<context:property-placeholder location="classpath:config.properties"/>-->
+
+	<aop:aspectj-autoproxy expose-proxy="true"/>
+
+	<context:component-scan base-package="com.tale.service"/>
+
+
+	<!-- 配置事务管理器 -->
+	<!--<bean class="org.springframework.jdbc.datasource.DataSourceTransactionManager"-->
+		  <!--id="transactionManager">-->
+		<!--<property name="dataSource"-->
+				  <!--ref="writeDataSource"/>-->
+	<!--</bean>-->
+
+	<!-- 注解方式配置事物 -->
+	<tx:annotation-driven/>
+
+
+	<!-- Rest请求配置 -->
+	<bean class="org.springframework.http.client.SimpleClientHttpRequestFactory"
+		  id="httpClientFactory">
+		<property name="connectTimeout"
+				  value="${connectTimeout}"/>
+		<property name="readTimeout"
+				  value="${readTimeout}"/>
+	</bean>
+
+	<bean class="org.springframework.web.client.RestTemplate"
+		  id="restTemplate">
+		<constructor-arg ref="httpClientFactory"/>
+	</bean>
+
+</beans>

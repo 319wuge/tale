@@ -1,0 +1,46 @@
+System.setProperty('line.sepatator', '\n')
+
+project.ext {
+    projectDependencyMap = [:]
+    projectDependencyMap.put('mysql:mysql-connector-java', 'mysql:mysql-connector-java:+')
+    projectDependencyMap.put('x.flyspace:mybatis-generator-gradle-plugin-core', 'x.flyspace:mybatis-generator-gradle-plugin-core:+')
+    projectDependencyMap.put('x.flyspace:mybatis-generator-plugin-core', 'x.flyspace:mybatis-generator-plugin-core:+')
+}
+
+def dep(dependencyName) {
+    project.ext.projectDependencyMap[dependencyName]
+}
+
+buildscript {
+    repositories {
+        mavenLocal()
+        maven { url "http://192.168.1.3:9081/nexus/content/groups/public" }
+        mavenCentral()
+    }
+}
+
+apply plugin: 'maven'
+
+group = 'x.flyspace'
+version = '1.0-snapshot'
+archivesBaseName = (project.rootProject.name + project.path).split(":").join("-")
+repositories {
+    mavenLocal()
+    maven { url "http://192.168.1.3:9081/nexus/content/groups/public" }
+    mavenCentral()
+}
+
+buildscript {
+    dependencies {
+        classpath 'mysql:mysql-connector-java:5.1.33'
+        classpath 'x.flyspace:mybatis-generator-gradle-plugin-core:+'
+        classpath 'x.flyspace:mybatis-generator-plugin-core:+'
+        classpath files("./")
+    }
+}
+
+apply plugin: 'x.flyspace.gradle.plugin.mybaitsgenerator'
+
+mybatisGeneratorConfig {
+    config = file("mybatis-generator-config.xml")
+}
