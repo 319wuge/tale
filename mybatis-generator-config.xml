@@ -60,6 +60,34 @@
             <property name="useActualColumnNames" value="true"/>
             <generatedKey column="id" identity="true" sqlStatement="MySql"/>
         </table>
+        <table tableName="t_comments">
+            <property name="useActualColumnNames" value="true"/>
+            <generatedKey column="id" identity="true" sqlStatement="MySql"/>
+        </table>
+        <table tableName="t_contents">
+            <property name="useActualColumnNames" value="true"/>
+            <generatedKey column="id" identity="true" sqlStatement="MySql"/>
+        </table>
+        <table tableName="t_logs">
+            <property name="useActualColumnNames" value="true"/>
+            <generatedKey column="id" identity="true" sqlStatement="MySql"/>
+        </table>
+        <table tableName="t_metas">
+            <property name="useActualColumnNames" value="true"/>
+            <generatedKey column="id" identity="true" sqlStatement="MySql"/>
+        </table>
+        <table tableName="t_options">
+            <property name="useActualColumnNames" value="true"/>
+            <generatedKey column="id" identity="true" sqlStatement="MySql"/>
+        </table>
+        <table tableName="t_relationships">
+            <property name="useActualColumnNames" value="true"/>
+            <generatedKey column="id" identity="true" sqlStatement="MySql"/>
+        </table>
+        <table tableName="t_users">
+            <property name="useActualColumnNames" value="true"/>
+            <generatedKey column="id" identity="true" sqlStatement="MySql"/>
+        </table>
     </context>
     <context defaultModelType="flat" id="read" targetRuntime="MyBatis3">
         <property name="renamePlugin.search" value="Iw"/>
@@ -116,6 +144,62 @@
                enableUpdateByExample="false"
                enableUpdateByPrimaryKey="false"
                tableName="t_attach">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table enableDeleteByExample="false"
+               enableDeleteByPrimaryKey="false"
+               enableInsert="false"
+               enableUpdateByExample="false"
+               enableUpdateByPrimaryKey="false"
+               tableName="t_comments">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table enableDeleteByExample="false"
+               enableDeleteByPrimaryKey="false"
+               enableInsert="false"
+               enableUpdateByExample="false"
+               enableUpdateByPrimaryKey="false"
+               tableName="t_contents">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table enableDeleteByExample="false"
+               enableDeleteByPrimaryKey="false"
+               enableInsert="false"
+               enableUpdateByExample="false"
+               enableUpdateByPrimaryKey="false"
+               tableName="t_logs">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table enableDeleteByExample="false"
+               enableDeleteByPrimaryKey="false"
+               enableInsert="false"
+               enableUpdateByExample="false"
+               enableUpdateByPrimaryKey="false"
+               tableName="t_metas">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table enableDeleteByExample="false"
+               enableDeleteByPrimaryKey="false"
+               enableInsert="false"
+               enableUpdateByExample="false"
+               enableUpdateByPrimaryKey="false"
+               tableName="t_options">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table enableDeleteByExample="false"
+               enableDeleteByPrimaryKey="false"
+               enableInsert="false"
+               enableUpdateByExample="false"
+               enableUpdateByPrimaryKey="false"
+               tableName="t_relationships">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table enableDeleteByExample="false"
+               enableDeleteByPrimaryKey="false"
+               enableInsert="false"
+               enableUpdateByExample="false"
+               enableUpdateByPrimaryKey="false"
+               tableName="t_users">
             <property name="useActualColumnNames" value="true"/>
         </table>
     </context>
