@@ -43,6 +43,9 @@ public final class TaleLoader {
                 bConfig.addStatic(new String[]{themePath + "/style.css", themePath + "/screenshot.png", themePath + "/static"});
             }
         }
+        bConfig.load("/spring/spring-context.xml");
+        bConfig.load("/spring/spring-mvc.xml");
+        bConfig.load("/spring/spring-mybatis.xml");
     }
 
     public static void loadTheme(String themePath){

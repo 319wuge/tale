@@ -1,7 +1,10 @@
 package com.tale.utils;
 
 import com.blade.context.WebContextHolder;
-import com.blade.kit.*;
+import com.blade.kit.DateKit;
+import com.blade.kit.FileKit;
+import com.blade.kit.StringKit;
+import com.blade.kit.Tools;
 import com.blade.mvc.http.Request;
 import com.blade.mvc.http.Response;
 import com.blade.mvc.http.wrapper.Session;
@@ -396,4 +399,45 @@ public class TaleUtils {
         }
         return prefix + "/" + com.blade.kit.UUID.UU32() + "." + FileKit.getExtension(name);
     }
+
+
+//    /**
+//     * 封装获得分页查询
+//     */
+//    <T> Paginator<T> page(Take var1) {
+//        BoundSql boundSql = SqlAssembleUtils.buildQuerySql((Object)null, take, this.getNameHandler());
+//        String countSql = Utils.getCountSql(boundSql.getSql());
+//        Paginator<T> paginator = null;
+//        Connection con = this.sql2o.open();
+//        Throwable var6 = null;
+//
+//        try {
+//            int total = ((Integer)con.createQuery(countSql).withParams(boundSql.getParams().toArray()).executeScalar(Integer.class)).intValue();
+//            PageRow pageRow = take.getPageRow();
+//            paginator = new Paginator((long)total, pageRow.getPage(), pageRow.getLimit());
+//            String sql = Utils.getPageSql(boundSql.getSql(), this.dialect, pageRow);
+//            List<?> list = con.createQuery(sql).withParams(boundSql.getParams().toArray()).executeAndFetch(take.getEntityClass());
+//            if(null != list) {
+//                paginator.setList(list);
+//            }
+//        } catch (Throwable var18) {
+//            var6 = var18;
+//            throw var18;
+//        } finally {
+//            if(con != null) {
+//                if(var6 != null) {
+//                    try {
+//                        con.close();
+//                    } catch (Throwable var17) {
+//                        var6.addSuppressed(var17);
+//                    }
+//                } else {
+//                    con.close();
+//                }
+//            }
+//
+//        }
+//
+//        return paginator;
+//    }
 }

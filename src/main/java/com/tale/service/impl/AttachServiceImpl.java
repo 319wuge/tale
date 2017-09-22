@@ -7,7 +7,10 @@ import com.blade.jdbc.core.Take;
 import com.blade.jdbc.model.Paginator;
 import com.blade.kit.DateKit;
 import com.tale.model.Attach;
+import com.tale.mybatis.dao.read.custom.TAttachReadDao;
+import com.tale.mybatis.dao.write.custom.TAttachWriteDao;
 import com.tale.service.AttachService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Created by biezhi on 2017/2/23.
@@ -17,6 +20,10 @@ public class AttachServiceImpl implements AttachService {
 
     @Inject
     private ActiveRecord activeRecord;
+    @Autowired
+    private TAttachWriteDao tAttachWriteDao;
+    @Autowired
+    private TAttachReadDao attachReadDao;
 
     @Override
     public Attach save(String fname, String fkey, String ftype, Integer author) {

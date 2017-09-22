@@ -9,6 +9,7 @@
 
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 	<!--<context:property-placeholder location="classpath:config.properties"/>-->
+	<import resource="spring-mybatis.xml"/>
 
 	<aop:aspectj-autoproxy expose-proxy="true"/>
 
